@@ -14,6 +14,8 @@
       <BaseInput label="Location" v-model="event.location" type="text" />
       <BaseCheckbox v-model="event.extras.catering" label="Catering" />
       <BaseCheckbox v-model="event.extras.cool" label="Cool" />
+      <BaseRadio v-model="event.pets" value="1" label="Yes" name="pets" />
+      <BaseRadio v-model="event.pets" value="0" label="No" name="pets" />
     </div>
   </div>
 </template>
@@ -22,6 +24,7 @@
 import BaseInput from "@/components/BaseInput.vue";
 import BaseSelect from "@/components/BaseSelect.vue";
 import BaseCheckbox from "@/components/BaseCheckbox.vue";
+import BaseRadio from "@/components/BaseRadio.vue";
 export default {
   name: "SimpleForm",
   components: {
@@ -29,6 +32,7 @@ export default {
     BaseInput,
     BaseSelect,
     BaseCheckbox,
+    BaseRadio,
   },
   data() {
     return {
@@ -42,6 +46,7 @@ export default {
           catering: true,
           cool: false,
         },
+        pets: true,
       },
     };
   },
@@ -86,12 +91,14 @@ label {
 .field-input:hover::placeholder {
   color: rgba(112, 112, 112, 0.2);
 }
-.checkbox {
+.checkbox,
+.radio {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.checkbox label {
+.checkbox label,
+.radio label {
   margin-bottom: 0;
 }
 </style>
